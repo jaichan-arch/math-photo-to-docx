@@ -1,0 +1,23 @@
+# Source photos and scans (may contain personal or student material)
+*.heic
+*.HEIC
+*.jpg
+*.jpeg
+*.png
+*.pdf
+
+# Generated output
+*.docx
+*.dotx
+*.pptx
+*.xlsx
+
+# Scratch and working files
+scratch*
+spec-*.txt
+optimised*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
