@@ -6,11 +6,10 @@ The output uses real Word equations (OMML), one equation per paragraph, question
 
 ## What's in this repo
 
-| Folder | Version | Status |
+| Folder | Version | Contents |
 |---|---|---|
-| `claude/` | Claude skill: `SKILL.md` (instructions) and `math2docx.py` (generator) | Ready |
-| `chatgpt/` | Custom GPT version | Not yet added |
-| `gemini/` | Gemini Gem version | Not yet added |
+| `claude/` | Claude skill | `SKILL.md` (instructions) and `math2docx.py` (generator) |
+| `chatgpt/maths-photo-to-docx/` | ChatGPT skill | `SKILL.md` (instructions), `scripts/math2docx.py` (generator), `agents/openai.yaml` (interface settings), `assets/icon.svg` |
 
 ## Claude version
 
@@ -51,6 +50,16 @@ The spec format is described in `claude/SKILL.md`. A short example:
 Explain why the answer is 4z.
 ? Is the trailing "= 1" cut off by the frame edge?
 ```
+
+## ChatGPT version
+
+The ChatGPT skill is in `chatgpt/maths-photo-to-docx/`. It follows the same workflow as the Claude version, with a few differences:
+
+- Its generator (`scripts/math2docx.py`) is a newer copy than `claude/math2docx.py`. It adds checks for empty fraction and superscript parts, keeps headings and labels with their equations, and checks the fraction count against pandoc.
+- It uses `□` for missing numbers in equations, and keeps simple fractions in prose as plain text (for example `4/7`).
+- `agents/openai.yaml` holds the display name, icon and default prompt for the ChatGPT skill.
+
+To use it, add the `maths-photo-to-docx` folder to your ChatGPT skill setup, then upload photos as you would for the Claude version. The generator is standard-library Python and runs the same way: `python3 scripts/math2docx.py spec.txt out.docx`.
 
 ## Limits and things to check
 
