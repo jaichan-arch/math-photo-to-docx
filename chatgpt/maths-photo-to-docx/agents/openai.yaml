@@ -1,0 +1,14 @@
+interface:
+  display_name: maths-photo-to-docx
+  short_description: Turn maths photos into native Word equations
+  default_prompt: Use $maths-photo-to-docx to convert these maths photos into a Word
+    document for BrailleSense 6.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
